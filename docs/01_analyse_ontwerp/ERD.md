@@ -1,11 +1,11 @@
-https://www.smartdraw.com/entity-relationship-diagram/er-diagram-tool.htm?srsltid=AfmBOorvcilyrbPcSoNVTuDxisgHD1K7pxCKL0djOCNONUjNjhOjOOKI
+https://www.canva.com/design/DAG4lub1MqY/hpPsGMNdGiidpDKmUgFq-A/edit?ui=eyJBIjp7fX0
 
 **Tabel `users`**
 
-| id | username | password |
-|----|-----------|-----------|
+| id | username | email | password |
+|----|----------|-------|----------|
 
 **Tabel `events`**
 
 | id | user_id | title | description | event_date | location | status |
-|----|----------|--------|-------------|-------------|-----------|---------|
+|----|---------|-------|-------------|------------|----------|--------|
