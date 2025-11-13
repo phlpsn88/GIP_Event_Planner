@@ -3,7 +3,7 @@
 
 ---
 
-**Naam leerlingen:**  
+**Naam leerlingen:** Quinten, Ash 
 **Klas:** 6ADB  
 **School:** Appschool Munsterbilzen  
 **Schooljaar:** 2025 – 2026  
