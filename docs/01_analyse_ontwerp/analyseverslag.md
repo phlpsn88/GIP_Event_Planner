@@ -63,8 +63,9 @@ Organisatoren en mensen die een gemakkelijkere manier zoeken om events bij te ho
 - Knop "Wijzigingen opslaan" → succes/foutmelding
 
 ##### **Footer (elke pagina)**
-- Auteurs
-- Contactinformatie
+- Auteurs/copyright
+- Contactinformatie en socials
+- Over ons
 
 #### Backend
 
