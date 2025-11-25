@@ -19,6 +19,7 @@ Organisatoren en mensen die een gemakkelijkere manier zoeken om events bij te ho
   - Registreerknop → registreerpagina
 - Header (ingelogd)
   - Logo → homepagina
+  - Knop "Naar events"→ overzichtspagina
 - Uitleg over de Event Planner
 
 ##### **Loginpagina**

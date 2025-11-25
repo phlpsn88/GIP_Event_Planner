@@ -33,6 +33,11 @@
 
 ### Takenverdeling
 - **Frontend:** Quinten
+  - Volgorde
+    - Home-pagina
+    - Overzichtspagina
+    - Login/registreren
+    - Event aanmaken/aanpassen
 - **Backend:** Ash
 
 **Uren verwacht:** wordt bepaald in januari
