@@ -35,9 +35,9 @@
 - **Frontend:** Quinten
   - Volgorde
     - Home-pagina
-    - Overzichtspagina
     - Login/registreren
-    - Event aanmaken/aanpassen
 - **Backend:** Ash
+  - Overzichtspagina
+  - Event aanmaken/aanpassen
 
 **Uren verwacht:** wordt bepaald in januari
