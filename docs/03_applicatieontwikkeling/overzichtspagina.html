@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Event planner</title>
+</head>
+<body>
+    <!-- header -->
+
+    <main>
+        <h1>Overzicht van je events</h1>
+
+        <a href="event_aanmaken.php" class="btn btn-primary">
+            Nieuw event
+        </a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>Beschrijving</th>
+                    <th>Datum</th>
+                    <th>Locatie</th>
+                    <th>Status</th>
+                    <th>Acties</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- dummy data, later PHP -->
+                <tr>
+                    <td>Teamvergadering</td>
+                    <td>Bespreking planning Q1</td>
+                    <td>2026-01-20</td>
+                    <td>Kantoor Hasselt</td>
+                    <td>
+                        <span class="status actief">Actief</span>
+                    </td>
+                    <td>
+                        <a href="event_aanpassen.php" title="Event aanpassen">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                        
+                        <form action="event_verwijderen.php" method="post">
+                            <input type="hidden" name="event_id" value="1">
+                            <button type="submit"
+                            title="Event verwijderen"
+                            onclick="return confirm('Ben je zeker dat je dit event wil verwijderen?')">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <!-- footer -->
+</body>
+</html>
