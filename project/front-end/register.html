@@ -1,35 +1,50 @@
+<!DOCTYPE html>
 <html lang="nl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VisionEvents – Registreren</title>
-  <link rel="stylesheet" href="css/register.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registreren</title>
+  <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
 
-  <div class="left">
-    <div class="brand">VisionEvents</div>
-  </div>
+  <div class="container">
+    <h1>Beginnen</h1>
 
-  <div class="right">
-    <div class="card">
-      <h1>Beginnen</h1>
-      <input type="text" placeholder="Naam" />
-      <input type="email" placeholder="E-mail" />
-      <input type="password" placeholder="Wachtwoord" />
+    <form>
 
-      <div class="terms">
-        <input type="checkbox" id="terms" />
+      <div class="form-group">
+        <label>Naam</label>
+        <input type="text" placeholder="Naam" required>
+      </div>
+
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" placeholder="E-mail" required>
+      </div>
+
+      <div class="form-group">
+        <label>Wachtwoord</label>
+        <input type="password" placeholder="Wachtwoord" required>
+      </div>
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="terms" required>
         <label for="terms">Ik accepteer de voorwaarden</label>
       </div>
 
-      <button>Registreer</button>
+      <button type="submit" class="btn">Registreer</button>
 
-      <div class="login-link">
-        Heeft u een account? <a href="#">Log in</a>
-      </div>
+    </form>
+
+    <div class="login-link">
+      Heeft u een account? <a href="#">Log in</a>
     </div>
   </div>
+
+, <!-- Achtergrond -->
+  <div class="decor-lock">🔒</div>
+  <div class="decor-username">gebruikersnaam</div>
 
 </body>
 </html>
