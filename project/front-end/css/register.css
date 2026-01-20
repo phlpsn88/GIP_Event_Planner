@@ -136,10 +136,10 @@ input[type="checkbox"] {
   z-index: 1;
 }
 
-.decor-username {
+.decor-lock2 {
   position: absolute;
   bottom: 100px;
-  left: -80px;
+  left: -10px;
   font-size: 80px;
   opacity: 0.06;
   color: #c4b5fd;
