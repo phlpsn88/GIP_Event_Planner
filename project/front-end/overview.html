@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/overzichtspagina.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/overview.css">
     <link rel="stylesheet" href="css/footer.css">
+    <script src="js/delete_popup.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Event planner</title>
 </head>
@@ -14,11 +16,12 @@
     </header>
 
     <main>
-        <h2>Overzicht van je events</h2>
-
-        <a href="back-end/event_aanmaken.php" class="btn btn-primary">
-            Nieuw event
-        </a>
+        <div class="page-header">
+            <h2>Overzicht van je events</h2>
+            <a href="back-end/event_aanmaken.php" class="btn btn-primary create-event">
+                Nieuw event
+            </a>
+        </div>
 
         <table>
             <thead>
@@ -36,34 +39,40 @@
                 <!-- dummy data, later PHP -->
                 <tr>
                     <td>Teamvergadering</td>
-                    <td>Bespreking planning Q1</td>
+                    <td>Bespreking planning</td>
                     <td>2026-01-20</td>
                     <td>Kantoor Hasselt</td>
                     <td>
-                        <span class="status actief">Actief</span>
+                        <span class="status active">Actief</span>
                     </td>
-                    <td>
+                    <td class="actions">
                         <a href="back-end/event_aanpassen.php" title="Event aanpassen">
-                            <i class="fa-regular fa-pen-to-square"></i>
+                            <i class="fa-regular fa-pen-to-square edit"></i>
                         </a>
                         
-                        <form action="back-end/event_verwijderen.php" method="post">
-                            <input type="hidden" name="event_id" value="1">
-                            <button type="submit"
-                            title="Event verwijderen"
-                            onclick="return confirm('Ben je zeker dat je dit event wil verwijderen?')">
-                                <i class="fa-regular fa-trash-can"></i>
-                            </button>
-                        </form>
+                        <button class="delete-btn" data-event-id="1" title="Event verwijderen">
+                            <i class="fa-regular fa-trash-can delete"></i>
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </main>
 
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>Event verwijderen?</h3>
+            <p>Ben je zeker dat je dit event wil verwijderen?</p>
+
+            <div class="modal-actions">
+                <button id="cancelDelete" class="btn btn-secondary">Annuleren</button>
+                <button id="confirmDelete" class="btn btn-danger">Verwijderen</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="footer-container">
-      
           <div class="footer-left">
             <h4>Socials</h4>
             <div class="social-icons">
@@ -72,7 +81,7 @@
               <a href="#"><img src="linkedin.svg" alt="LinkedIn"></a>
             </div>
       
-            <h4 class="contact-title">contact us</h4>
+            <h4 class="contact-title">Contact us</h4>
       
             <div class="contact-item">
               <span class="icon">✉</span>
@@ -97,8 +106,7 @@
               puntjes klopt.
             </p>
           </div>
-      
         </div>
-      </footer>
+    </footer>
 </body>
 </html>
