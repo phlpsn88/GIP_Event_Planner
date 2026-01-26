@@ -56,7 +56,6 @@ label {
   color: #e0d0ff;
 }
 
-input[type="text"],
 input[type="email"],
 input[type="password"] {
   width: 100%;
@@ -79,12 +78,18 @@ input:focus {
   box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.4);
 }
 
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 32px 0;
+  font-size: 0.95rem;
+}
+
 .checkbox-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 24px 0 32px 0;
-  font-size: 0.95rem;
   color: #d8c8ff;
 }
 
@@ -92,6 +97,17 @@ input[type="checkbox"] {
   width: 18px;
   height: 18px;
   accent-color: #a855f7;
+}
+
+.forgot-password {
+  color: #c4b5fd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot-password:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .btn {
@@ -106,7 +122,6 @@ input[type="checkbox"] {
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
-  margin-top: auto;
 }
 
 .btn:hover {
@@ -115,26 +130,25 @@ input[type="checkbox"] {
   box-shadow: 0 8px 28px rgba(139, 92, 246, 0.5);
 }
 
-.login-link {
+.register-link {
   text-align: center;
   margin-top: 28px;
   font-size: 0.97rem;
   color: #d1c4ff;
 }
 
-.login-link a {
+.register-link a {
   color: #c4b5fd;
   text-decoration: none;
   font-weight: 500;
 }
 
-.login-link a:hover {
+.register-link a:hover {
   color: white;
   text-decoration: underline;
 }
 
 /* Achtergrond decoratie */
-
 .decor-lock,
 .decor-lock2 {
   position: fixed;
