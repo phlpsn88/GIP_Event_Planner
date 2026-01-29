@@ -2,7 +2,10 @@
     --primary-color-purple: #b388eb;
     --primary-color-black: #000;
     --primary-color-white: #fff;
+    --primary-color-red: #dc2626;
     --secondary-color-purple: #d7b7f7;
+    --secondary-color-white: #f3f3f3;
+    --secondary-color-red: #b42318;
 }
 
 * {
@@ -12,8 +15,14 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+*::before, *::after {
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 header {
