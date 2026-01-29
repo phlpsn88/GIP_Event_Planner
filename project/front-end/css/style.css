@@ -45,34 +45,3 @@ main {
     margin: 3rem auto;
     padding: 0 1rem;
 }
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-primary {
-    background-color: var(--primary-color-purple);
-    color: var(--primary-color-white);
-}
-
-.btn-secondary {
-    background-color: #e5e7eb;
-}
-
-.btn-danger {
-    background-color: #b42318;
-    color: var(--primary-color-white);
-}
-
-.btn-secondary:hover {
-    background: #d1d5db;
-}
-
-.btn-danger:hover {
-    background: #b42318;
-}
