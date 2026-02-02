@@ -1,6 +1,36 @@
 /* =========================
    PAGE HEADER
 ========================= */
+
+header {
+    background: var(--background-gradient-purple);
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+h1 {
+    padding: 1.5rem;
+    font-size: 2rem;
+}
+  
+.logo {
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #c084fc, #f472b6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(168,85,247,0.4);
+}
+  
+.logo span {
+    color: var(--primary-color-white);
+    background: none;
+    -webkit-text-fill-color: var(--primary-color-white);
+}
+
 .page-header {
     display: flex;
     flex-direction: column;

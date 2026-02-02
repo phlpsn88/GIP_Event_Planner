@@ -1,5 +1,4 @@
 /* Footer */
-
 html, body {
   margin: 0;
   padding: 0;
@@ -8,12 +7,10 @@ html, body {
 
 .footer {
   background: linear-gradient(135deg, #7c3aed, #4c1d95);
-  color: white;
+  color: var(--primary-color-white);
   padding: 60px 20px 40px;
-  font-family: system-ui, -apple-system, sans-serif;
   width: 100%;
   box-sizing: border-box;
-  /* overflow-x: hidden; */
 }
 
 .footer * {
