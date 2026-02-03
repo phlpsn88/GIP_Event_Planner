@@ -6,12 +6,14 @@ const confirmBtn = document.getElementById('confirmDelete');
 // open modal
 deleteButtons.forEach(btn => {
     btn.addEventListener("click", () => {
+        // Add class "show" to modal
         modal.classList.add("show");
     });
 });
 
 // Cancel
 cancelBtn.addEventListener("click", () => {
+    // Remove class "show" from modal
     modal.classList.remove("show");
 });
 

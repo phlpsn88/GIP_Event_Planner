@@ -1,0 +1,13 @@
+/* =========================
+   PAGE HEADER
+========================= */
+header {
+    background: var(--background-gradient-purple);
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+/* =========================
+   
+========================= */

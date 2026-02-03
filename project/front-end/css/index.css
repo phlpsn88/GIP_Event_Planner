@@ -21,23 +21,6 @@ body {
     gap: 1rem;
 }
   
-.logo {
-    font-size: 2.1rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    background: linear-gradient(90deg, #c084fc, #f472b6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(168,85,247,0.4);
-}
-  
-.logo span {
-    color: var(--primary-color-white);
-    background: none;
-    -webkit-text-fill-color: var(--primary-color-white);
-}
-  
 .nav-buttons {
     display: flex;
     gap: 1rem;
@@ -64,15 +47,15 @@ body {
 }
   
 .btn-register:hover {
-    background: var(--purple-dark);
+    background: var(--dark-color-purple);
     transform: translateY(-1px);
     box-shadow: 0 10px 25px rgba(168,85,247,0.35);
 }
   
 .btn-login {
-    background: rgba(255,255,255,0.08);
+    background: var(--background-color-grey);
     color: var(--primary-color-white);
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid var(--border-color-grey);
 }
   
 .btn-login:hover {
@@ -119,18 +102,18 @@ body {
     margin-top: 2.5rem;
     padding: 1.1rem 2.8rem;
     font-size: 1.25rem;
-    background: linear-gradient(45deg, var(--purple-dark), #c084fc);
+    background: linear-gradient(45deg, var(--dark-color-purple), var(--secondary-color-purple));
     color: var(--primary-color-white);
     border: none;
     border-radius: 999px;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(147,51,234,0.4);
+    box-shadow: 0 10px 30px var(--box-shadow-purple);
     transition: all 0.3s ease;
 }
   
 .manage-btn:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(147,51,234,0.5);
+    box-shadow: 0 20px 40px var(--box-shadow-purple);
 }
   
 /* RESPONSIVE */

@@ -1,18 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
 body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, #7c3aed, #4c1d95);
+  background: var(--background-gradient-purple);
   color: var(--primary-color-white);
   display: flex;
   justify-content: center;
@@ -29,8 +16,8 @@ body {
   padding: 48px 32px 40px;
   width: 100%;
   max-width: 420px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color-grey);
+  box-shadow: 0 8px 32px var(--box-shadow-black);
   position: relative;
   z-index: 2;
   display: flex;
@@ -41,7 +28,7 @@ h1 {
   text-align: center;
   font-size: 2.1rem;
   margin-bottom: 40px;
-  color: #e9d5ff;
+  color: var(--light-color-purple);
   letter-spacing: 1px;
 }
 
@@ -53,16 +40,17 @@ label {
   display: block;
   margin-bottom: 8px;
   font-size: 0.95rem;
-  color: #e0d0ff;
+  color: var(--light-color-purple);
 }
 
+input[type="text"],
 input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 14px 16px;
   border: none;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.09);
+  background: var(--background-color-grey);
   color: var(--primary-color-white);
   font-size: 1.05rem;
   transition: all 0.2s ease;
@@ -74,23 +62,23 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px var(--box-shadow-purple);
 }
 
 .options {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 0 32px 0;
-  font-size: 0.95rem;
 }
 
 .checkbox-container {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #d8c8ff;
+  margin: 24px 0 32px 0;
+  font-size: 0.95rem;
+  color: var(--light-color-purple);
 }
 
 input[type="checkbox"] {
@@ -100,7 +88,7 @@ input[type="checkbox"] {
 }
 
 .forgot-password {
-  color: #c4b5fd;
+  color: var(--light-color-purple);
   text-decoration: none;
   font-weight: 500;
 }
@@ -113,7 +101,7 @@ input[type="checkbox"] {
 .btn {
   width: 100%;
   padding: 16px;
-  background: #8b5cf6;
+  background: var(--primary-color-purple);
   color: var(--primary-color-white);
   border: none;
   border-radius: 10px;
@@ -122,40 +110,41 @@ input[type="checkbox"] {
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
+  margin-top: auto;
 }
 
 .btn:hover {
-  background: #a78bfa;
+  background: var(--secondary-color-purple);
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(139, 92, 246, 0.5);
 }
 
-.register-link {
+.link {
   text-align: center;
   margin-top: 28px;
   font-size: 0.97rem;
-  color: #d1c4ff;
+  color: var(--secondary-color-purple);
 }
 
-.register-link a {
-  color: #c4b5fd;
+.link a {
+  color: var(--light-color-purple);
   text-decoration: none;
   font-weight: 500;
 }
 
-.register-link a:hover {
-  color: var(--primary-color-white);
+.link a:hover {
+  color: var(--secondary-color-white);
   text-decoration: underline;
 }
 
-/* Achtergrond decoratie */
+/* Achtergronddecoratie */
 .decor-lock,
 .decor-lock2 {
   position: fixed;
   font-size: 180px;
   opacity: 0.07;
   pointer-events: none;
-  color: #b19cd9;
+  color: var(--light-color-purple);
   z-index: 1;
   filter: blur(3px);
   user-select: none;

@@ -1,7 +1,6 @@
 /* =========================
    PAGE HEADER
 ========================= */
-
 header {
     background: var(--background-gradient-purple);
     display: flex;
@@ -12,23 +11,6 @@ header {
 h1 {
     padding: 1.5rem;
     font-size: 2rem;
-}
-  
-.logo {
-    font-size: 2.1rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    background: linear-gradient(90deg, #c084fc, #f472b6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(168,85,247,0.4);
-}
-  
-.logo span {
-    color: var(--primary-color-white);
-    background: none;
-    -webkit-text-fill-color: var(--primary-color-white);
 }
 
 .page-header {
@@ -54,7 +36,7 @@ h1 {
 }
 
 .btn-primary {
-    background-color: var(--primary-color-purple);
+    background-color: var(--dark-color-purple);
     color: var(--primary-color-white);
 }
 
@@ -63,7 +45,7 @@ h1 {
 }
 
 .btn-danger {
-    background-color: #b42318;
+    background-color: var(--secondary-color-red);
     color: var(--primary-color-white);
 }
 
@@ -72,11 +54,11 @@ h1 {
 }
 
 .btn-danger:hover {
-    background: #b42318;
+    background: var(--primary-color-red);
 }
 
 /* =========================
-   EVENTS CARDS (MOBILE FIRST)
+   EVENTS CARDS
 ========================= */
 .events {
     display: grid;
@@ -90,7 +72,7 @@ h1 {
     padding: 1rem;
     display: grid;
     gap: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--box-shadow-black);
 }
 
 .event-card p, .event-card span {

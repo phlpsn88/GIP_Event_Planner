@@ -1,13 +1,18 @@
 :root {
-    --purple-dark: #9333ea;
     --primary-color-purple: #a855f7;
     --primary-color-black: #000;
     --primary-color-white: #fff;
     --primary-color-red: #dc2626;
-    --secondary-color-purple: #d7b7f7;
+    --secondary-color-purple: #c386ff;
     --secondary-color-white: #f3f3f3;
     --secondary-color-red: #b42318;
-    --background-gradient-purple: linear-gradient(135deg, #7c3aed, #4c1d95);
+    --light-color-purple: #e9d5ff;
+    --dark-color-purple: #9333ea;
+    --background-color-grey: rgba(255, 255, 255, 0.08);
+    --background-gradient-purple: linear-gradient(135deg, #791d95, #b13aed);
+    --box-shadow-purple: rgba(147,51,234,0.4);
+    --box-shadow-black: rgba(0, 0, 0, 0.4);
+    --border-color-grey: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -39,6 +44,24 @@ main {
     padding: 0 1rem;
 }
 
+/* Logo */
+.logo {
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #c084fc, #f472b6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(168,85,247,0.4);
+}
+  
+.logo span {
+    color: var(--primary-color-white);
+    background: none;
+    -webkit-text-fill-color: var(--primary-color-white);
+}
+
 /* Footer */
 .footer {
     background: var(--background-gradient-purple);
@@ -68,7 +91,7 @@ main {
 .contact h3 {
     font-size: 1.4rem;
     margin-bottom: 1.25rem;
-    color: #e9d5ff;
+    color: var(--light-color-purple);
     letter-spacing: 0.5px;
 }
   
@@ -108,7 +131,7 @@ main {
 .about p {
     line-height: 1.7;
     font-size: 1.05rem;
-    color: #e0d0ff;
+    color: var(--light-color-purple);
     opacity: 0.95;
     margin: 0;
 }
@@ -127,13 +150,13 @@ main {
 }
   
 .contact a {
-    color: #c4b5fd;
+    color: var(--light-color-purple);
     text-decoration: none;
     transition: color 0.2s ease;
 }
   
 .contact a:hover {
-    color: var(--primary-color-white);
+    color: var(--secondary-color-white);
 }
   
 /*Responsive*/
