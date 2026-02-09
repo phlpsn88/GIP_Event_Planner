@@ -71,14 +71,6 @@ header {
 }
 
 @media (min-width: 768px) {
-    /* main {
-        max-height: 36.5vh;
-    } */
-
-    /* .form-section {
-        max-height: 36.5vh;
-    } */
-    
     .event-form {
         min-width: 450px;
         /* max-width: 900px; */
