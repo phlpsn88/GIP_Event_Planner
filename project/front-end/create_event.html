@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evenement aanpassen</title>
+    <title>Nieuw evenement</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/edit_create_event.css">
     <script src="js/confirm_cancel_popup.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
   <header>
@@ -19,31 +21,31 @@
 
     <main>
       <section class="form-section">
-        <h2>Evenement aanpassen</h2>
+        <h2>Nieuw evenement</h2>
         <form class="event-form" method="post" action="">
           <div class="form-input">
             <label for="title">
               Titel
-              <input type="text" value="Game Night" name="title" id="title">
+              <input type="text" value="" name="title" id="title" placeholder="Titel van het evenement" required>
             </label>
         
             <label for="description">
               Beschrijving
-              <textarea name="description" id="description">Bring your console 🎮</textarea>
+              <textarea name="description" id="description" placeholder="Korte beschrijving"></textarea>
             </label>
         
             <div class="form-select">
               <label for="date">
                 Datum
-                <input type="date" value="2026-03-23" name="date" id="date">
+                <input type="date" value="" name="date" id="date" required>
               </label>
-              <label>
-                Status
-                <select name="status" id="status">
-                  <option selected>Actief</option>
-                  <option>Geannuleerd</option>
-                </select>
-              </label>
+              <input type="hidden" name="status" id="status" value="actief">
+              <div class="default-info">
+                <span class="info-icon">
+                    <i class="fa-solid fa-circle-info" style="color: var(--primary-color-purple);"></i>
+                </span>
+                <p>Nieuwe evenementen worden automatisch als <strong>actief</strong> aangemaakt. Je kan dit later aanpassen.</p>
+              </div>
             </div>
           </div>
         
@@ -70,7 +72,7 @@
           </button>
         </div>
       </div>
-    </div>    
+    </div> 
 
     <!-- Footer -->
     <footer class="footer">

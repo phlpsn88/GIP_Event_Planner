@@ -40,23 +40,6 @@ h1 {
     color: var(--primary-color-white);
 }
 
-.btn-secondary {
-    background-color: #e5e7eb;
-}
-
-.btn-danger {
-    background-color: var(--secondary-color-red);
-    color: var(--primary-color-white);
-}
-
-.btn-secondary:hover {
-    background: #d1d5db;
-}
-
-.btn-danger:hover {
-    background: var(--primary-color-red);
-}
-
 /* =========================
    EVENTS CARDS
 ========================= */
@@ -143,47 +126,6 @@ h1 {
 }
 
 /* =========================
-   MODAL
-========================= */
-.modal {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-content {
-    background-color: var(--primary-color-white);
-    padding: 1.5rem;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-}
-
-.modal-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.btn-secondary {
-    background-color: #e5e7eb;
-}
-
-.btn-danger {
-    background-color: var(--secondary-color-red);
-    color: var(--primary-color-white);
-}
-
-/* =========================
    MEDIA QUERY (DESKTOP)
 ========================= */
 @media (min-width: 768px) {
@@ -223,11 +165,6 @@ h1 {
 
     .event-footer {
         justify-content: flex-end;
-    }
-
-    .modal-actions {
-        flex-direction: row;
-        justify-content: space-between;
     }
 
     .status {

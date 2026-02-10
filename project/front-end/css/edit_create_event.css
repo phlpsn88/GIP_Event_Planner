@@ -11,6 +11,10 @@ header {
 /* =========================
    FORM
 ========================= */
+.form-section h2{
+    color: var(--dark-color-purple);
+}
+
 .event-form {
     max-width: 600px;
     margin: 0.5rem;
@@ -54,6 +58,19 @@ header {
     min-height: 90px;
 }
 
+.default-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    padding: 0.8rem 0.75rem;
+}
+
+.info-icon {
+    font-size: 1.5rem;
+}
+
 .form-actions {
     display: flex;
     flex-direction: column;
@@ -63,17 +80,33 @@ header {
 .form-actions .btn {
     margin: auto;
     width: 80%;
+    display: inline-flex;
     justify-content: center;
+    align-items: center;
     color: var(--primary-color-white);
     background: var(--secondary-color-purple);
     border: solid var(--dark-color-purple);
-    border-radius: 9px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-actions .btn:hover {
+    filter: brightness(1.05);
+}
+
+.modal-actions .btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 @media (min-width: 768px) {
     .event-form {
-        min-width: 450px;
-        /* max-width: 900px; */
+        min-width: 600px;
     }
     .form-input {
         display: grid;
@@ -94,5 +127,9 @@ header {
     .form-actions .btn {
         width: 35%;
         min-width: 140px;
+    }
+
+    .modal-actions .btn {
+        width: 50%;
     }
 }
