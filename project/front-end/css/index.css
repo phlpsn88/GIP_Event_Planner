@@ -166,6 +166,7 @@ body {
     box-shadow: 0 10px 30px var(--glow);
     font-weight: 600;
     transition: all 0.4s ease;
+    text-decoration: none;
 }
 
 .manage-btn:hover {
