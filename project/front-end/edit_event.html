@@ -11,114 +11,114 @@
 <body>
   <header>
     <div class="logo">
-        <a href="../../index.html">
-            Vision<span>Events</span>
-        </a>
+      <a href="../../index.html">
+        Vision<span>Events</span>
+      </a>
     </div>
-</header>
+  </header>
 
-    <main>
-      <section class="form-section">
-        <h2>Evenement aanpassen</h2>
-        <form class="event-form" method="post" action="">
-          <div class="form-input">
-            <label for="title">
-              Titel
-              <input type="text" value="Game Night" name="title" id="title">
+  <main>
+    <section class="form-section">
+      <h2>Evenement aanpassen</h2>
+      <form class="event-form" method="post" action="">
+        <div class="form-input">
+          <label for="title">
+            Titel
+            <input type="text" value="Game Night" name="title" id="title">
+          </label>
+        
+          <label for="description">
+            Beschrijving
+            <textarea name="description" id="description">Bring your console 🎮</textarea>
+          </label>
+        
+          <div class="form-select">
+            <label for="date">
+              Datum
+              <input type="date" value="2026-03-23" name="date" id="date">
             </label>
-        
-            <label for="description">
-              Beschrijving
-              <textarea name="description" id="description">Bring your console 🎮</textarea>
+            <label>
+              Status
+              <select name="status" id="status">
+                <option selected>Actief</option>
+                <option>Geannuleerd</option>
+              </select>
             </label>
-        
-            <div class="form-select">
-              <label for="date">
-                Datum
-                <input type="date" value="2026-03-23" name="date" id="date">
-              </label>
-              <label>
-                Status
-                <select name="status" id="status">
-                  <option selected>Actief</option>
-                  <option>Geannuleerd</option>
-                </select>
-              </label>
-            </div>
           </div>
-        
-          <div class="form-actions">
-            <button type="button" class="btn" id="cancelBtn">Annuleren</button>
-            <button type="submit" class="btn">Opslaan</button>
-          </div>
-        </form>         
-      </section>
-    </main>
+        </div>
+          
+        <div class="form-actions">
+          <button type="button" class="btn" id="cancelBtn">Annuleren</button>
+          <button type="submit" class="btn">Opslaan</button>
+        </div>
+      </form>         
+    </section>
+  </main>
 
-    <!-- Modal -->
-    <div id="cancelModal" class="modal">
-      <div class="modal-content">
-        <h3>Wijzigingen annuleren?</h3>
-        <p>Niet-opgeslagen wijzigingen gaan verloren. Wil je doorgaan?</p>
+      <!-- Modal -->
+  <div id="cancelModal" class="modal">
+    <div class="modal-content">
+      <h3>Wijzigingen annuleren?</h3>
+      <p>Niet-opgeslagen wijzigingen gaan verloren. Wil je doorgaan?</p>
+      
+      <div class="modal-actions">
+        <button id="cancelCancel" class="btn btn-secondary">
+          Verder aanpassen
+        </button>
+        <button id="confirmCancel" class="btn btn-danger">
+          Stoppen
+        </button>
+      </div>
+    </div>
+  </div>    
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <!-- Socials sectie -->
+      <div class="socials">
+        <h3>Socials</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook" class="social-link">
+            <img src="https://img.icons8.com/fluency/48/facebook-new.png" alt="Facebook">
+          </a>
+          <a href="#" aria-label="Instagram" class="social-link">
+            <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram">
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-link">
+            <img src="https://img.icons8.com/fluency/48/linkedin.png" alt="LinkedIn">
+          </a>
+        </div>
+      </div>
     
-        <div class="modal-actions">
-          <button id="cancelCancel" class="btn btn-secondary">
-            Verder aanpassen
-          </button>
-          <button id="confirmCancel" class="btn btn-danger">
-            Stoppen
-          </button>
+      <!-- About Us sectie -->
+      <div class="about">
+        <div class="about-header">
+          <div class="about-icon">👥</div>
+          <h3>ABOUT US</h3>
+        </div>
+        <p>
+          Bij VisionEvents geloven we dat elk evenement begint met een visie — jouw visie.<br><br>
+          Ons team zet zich in om die ideeën tot leven te brengen door unieke, memorabele 
+          en vlekkeloos georganiseerde events te creëren. Van kleine privéfeesten tot 
+          grootschalige bedrijfsevenementen, wij zorgen voor een ervaring die tot in 
+          de puntjes klopt.
+        </p>
+      </div>
+
+      <!-- Contact sectie -->
+      <div class="contact">
+        <h3>Contact us</h3>
+        <div class="contact-item">
+          <span class="contact-icon">✉️</span>
+          <a href="mailto:VisionEvents@gmail.com">VisionEvents@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <a href="tel:+32479262982">+32 479 29 82</a>
         </div>
       </div>
-    </div>    
-
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-content">
-        <!-- Socials sectie -->
-        <div class="socials">
-          <h3>Socials</h3>
-          <div class="social-icons">
-            <a href="#" aria-label="Facebook" class="social-link">
-              <img src="https://img.icons8.com/fluency/48/facebook-new.png" alt="Facebook">
-            </a>
-            <a href="#" aria-label="Instagram" class="social-link">
-              <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram">
-            </a>
-            <a href="#" aria-label="LinkedIn" class="social-link">
-              <img src="https://img.icons8.com/fluency/48/linkedin.png" alt="LinkedIn">
-            </a>
-          </div>
-        </div>
-  
-        <!-- About Us sectie -->
-        <div class="about">
-          <div class="about-header">
-            <div class="about-icon">👥</div>
-            <h3>ABOUT US</h3>
-          </div>
-          <p>
-            Bij VisionEvents geloven we dat elk evenement begint met een visie — jouw visie.<br><br>
-            Ons team zet zich in om die ideeën tot leven te brengen door unieke, memorabele 
-            en vlekkeloos georganiseerde events te creëren. Van kleine privéfeesten tot 
-            grootschalige bedrijfsevenementen, wij zorgen voor een ervaring die tot in 
-            de puntjes klopt.
-          </p>
-        </div>
-
-        <!-- Contact sectie -->
-        <div class="contact">
-          <h3>Contact us</h3>
-          <div class="contact-item">
-            <span class="contact-icon">✉️</span>
-            <a href="mailto:VisionEvents@gmail.com">VisionEvents@gmail.com</a>
-          </div>
-          <div class="contact-item">
-            <span class="contact-icon">📞</span>
-            <a href="tel:+32479262982">+32 479 29 82</a>
-          </div>
-        </div>
-      </div>
+    </div>
   </footer>
 </body>
 </html>
