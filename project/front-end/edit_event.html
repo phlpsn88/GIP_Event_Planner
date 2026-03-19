@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evenement aanpassen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="img/calendar-days-regular-full.svg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/edit_create_event.css">
     <script src="js/confirm_cancel_popup.js" defer></script>
+    <script src="js/edit_event.js" defer></script>
 </head>
 <body>
   <header>
@@ -20,17 +23,19 @@
   <main>
     <section class="form-section">
       <h2>Evenement aanpassen</h2>
-      <form class="event-form" method="post" action="">
+      <form class="event-form" method="post" action="" id="editForm">
         <div class="form-input">
           <label for="title">
             Titel
             <input type="text" value="Game Night" name="title" id="title">
           </label>
+          <p class="empty-field" id="titleError" style="display: none;">Titel mag niet leeg zijn</p>
         
           <label for="description">
             Beschrijving
             <textarea name="description" id="description">Bring your console 🎮</textarea>
           </label>
+          <p class="empty-field"></p>
         
           <div class="form-select">
             <label for="date">
@@ -79,13 +84,13 @@
       <div class="socials">
         <h3>Socials</h3>
         <div class="social-icons">
-          <a href="#" aria-label="Facebook" class="social-link">
+          <a href="https://facebook.com/" aria-label="Facebook" class="social-link" target="_blank">
             <img src="https://img.icons8.com/fluency/48/facebook-new.png" alt="Facebook">
           </a>
-          <a href="#" aria-label="Instagram" class="social-link">
+          <a href="https://instagram.com/" aria-label="Instagram" class="social-link" target="_blank">
             <img src="https://img.icons8.com/fluency/48/instagram-new.png" alt="Instagram">
           </a>
-          <a href="#" aria-label="LinkedIn" class="social-link">
+          <a href="https://nl.linkedin.com/" aria-label="LinkedIn" class="social-link" target="_blank">
             <img src="https://img.icons8.com/fluency/48/linkedin.png" alt="LinkedIn">
           </a>
         </div>
