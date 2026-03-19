@@ -48,3 +48,11 @@ AND PASSWORD = "hash";
 -- register
 INSERT INTO USERS (USERNAME, EMAIL, PASSWORD)
 VALUES ("testuser", "test@mail.com", "hash");
+
+SELECT * FROM USERS;
+
+
+-- basisinfo laten zien met inner join: username, titel, beschrijving, datum, locatie
+SELECT TITLE, DESCRIPTION, EVENT_DATE, LOCATION, USERNAME FROM EVENTS
+INNER JOIN USERS
+ON USERS.ID = EVENTS.USER_ID;

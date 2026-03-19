@@ -414,14 +414,14 @@ footer {
 @media (max-width: 768px) {
     .title-underline { margin-bottom: 1rem; }
     .manage-btn { margin-top: 1.8rem; }
-    .highlights { padding: 0 0.8rem; }
+    .highlights { grid-template-columns: 1fr; gap: 2rem; padding: 0 0.8rem; }
 }
 
 @media (max-width: 480px) {
     .header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     .nav-buttons { width: 100%; justify-content: center; }
     .btn { flex: 1; justify-content: center; }
-    .highlights { grid-template-columns: 1fr; gap: 2rem; }
+    /* .highlights { grid-template-columns: 1fr; gap: 2rem; } */
 }
 
 @media (min-width: 768px) {
