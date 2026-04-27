@@ -10,6 +10,7 @@ CREATE TABLE USERS (
     USERNAME VARCHAR(50) NOT NULL,
     EMAIL VARCHAR(255) NOT NULL,
     PASSWORD VARCHAR(64) NOT NULL,
+    ROLE VARCHAR(20) DEFAULT 'Gebruiker',
     PRIMARY KEY (ID),
     UNIQUE (EMAIL)
 );
@@ -29,10 +30,10 @@ CREATE TABLE EVENTS (
 
 -- Dummy data voor USERS
 INSERT INTO USERS (USERNAME, EMAIL, PASSWORD) VALUES
-('admin', 'admin@visionevents.be', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'),
-('sarah', 'sarah@mail.com', 'b7c2e5a9d1f4c8e6a3b9f2d5c7e1a4b8f6d9e3c2a5'),
-('tom', 'tom@mail.com', 'c9e4a7b2d6f8e1a5c3b9d7e2f4a6c8b5e1d9'),
-('lena', 'lena@mail.com', 'testWachtwoord');
+('admin', 'admin@visionevents.be', 'PLACEHOLDER'),
+('sarah', 'sarah@mail.com', 'PLACEHOLDER'),
+('tom', 'tom@mail.com', 'PLACEHOLDER'),
+('lena', 'lena@mail.com', 'PLACEHOLDER');
 
 -- Dummy data voor EVENTS
 INSERT INTO EVENTS (USER_ID, TITLE, DESCRIPTION, EVENT_DATE, LOCATION, STATUS) VALUES
