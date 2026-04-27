@@ -5,38 +5,38 @@ CREATE DATABASE event_planner;
 USE event_planner;
 
 -- Tabel Users aanmaken
-CREATE TABLE USERS (
+CREATE TABLE users (
     ID INTEGER NOT NULL AUTO_INCREMENT,
-    USERNAME VARCHAR(50) NOT NULL,
-    EMAIL VARCHAR(255) NOT NULL,
-    PASSWORD VARCHAR(64) NOT NULL,
-    ROLE VARCHAR(20) DEFAULT 'Gebruiker',
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(64) NOT NULL,
+    role VARCHAR(20) DEFAULT 'Gebruiker',
     PRIMARY KEY (ID),
-    UNIQUE (EMAIL)
+    UNIQUE (email)
 );
 
 -- Tabel Events aanmaken
-CREATE TABLE EVENTS (
+CREATE TABLE events (
     ID INTEGER NOT NULL AUTO_INCREMENT,
-    USER_ID INTEGER,
-    TITLE VARCHAR(150) NOT NULL,
-    DESCRIPTION TEXT,
-    EVENT_DATE DATE NOT NULL,
-    LOCATION VARCHAR(150),
-    STATUS BOOL NOT NULL,
+    user_id INTEGER,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    event_date DATE NOT NULL,
+    location VARCHAR(150),
+    status BOOL NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (USER_ID) REFERENCES USERS(ID)
+    FOREIGN KEY (user_id) REFERENCES users(ID)
 );
 
--- Dummy data voor USERS
-INSERT INTO USERS (USERNAME, EMAIL, PASSWORD) VALUES
+-- Dummy data voor users
+INSERT INTO users (username, email, password) VALUES
 ('admin', 'admin@visionevents.be', 'PLACEHOLDER'),
 ('sarah', 'sarah@mail.com', 'PLACEHOLDER'),
 ('tom', 'tom@mail.com', 'PLACEHOLDER'),
 ('lena', 'lena@mail.com', 'PLACEHOLDER');
 
--- Dummy data voor EVENTS
-INSERT INTO EVENTS (USER_ID, TITLE, DESCRIPTION, EVENT_DATE, LOCATION, STATUS) VALUES
+-- Dummy data voor events
+INSERT INTO events (user_id, title, description, event_date, location, status) VALUES
 (1, 'VisionEvents Launch', 'Officiële lancering van het VisionEvents platform', '2025-02-15', 'Hasselt', 1),
 (1, 'Admin Overleg', 'Interne bespreking met alle admins', '2025-03-05', 'Online', 1),
 

@@ -9,25 +9,26 @@
   <link rel="icon" href="img/calendar-days-regular-full.svg">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/login_register.css">
+  <script type="module" src="js/auth.js"></script>
 </head>
 
 <body>
   <div class="container">
     <h1>Beginnen</h1>
-    <form>
+    <form id="register-form">
       <div class="form-group">
         <label>Naam</label>
-        <input type="text" placeholder="Naam" required>
+        <input type="text" id="naam" placeholder="Naam" required>
       </div>
 
       <div class="form-group">
         <label>E-mail</label>
-        <input type="email" placeholder="E-mail" required>
+        <input type="email" id="email" placeholder="E-mail" required>
       </div>
 
       <div class="form-group">
         <label>Wachtwoord</label>
-        <input type="password" placeholder="Wachtwoord" required>
+        <input type="password" id="wachtwoord" placeholder="Wachtwoord" required>
       </div>
 
       <div class="checkbox-container">
@@ -37,6 +38,8 @@
 
       <button type="submit" class="btn">Registreer</button>
     </form>
+
+    <p id="foutmelding" class="fout" hidden></p>
 
     <div class="link">
       Heeft u al een account? <a href="login.html">Log in</a>

@@ -27,6 +27,33 @@ const pool = mysql.createPool({
     database: 'event_planner'
 });
 
+app.post('/api/register', async (req, res) => {
+    const { username, email, password } = req.body;
+
+    if (!username || !email || !password) {
+        return res.status(400).json({ fout: 'Alle velden zijn verplicht' });
+    }
+    if (password.length < 8) {
+        return res.status(400).json({ fout: 'Wachtwoord moet minstens 8 tekens zijn' });
+    }
+
+    const [bestaande] = await pool.execute(
+        'SELECT ID FROM users WHERE email = ?', [email]
+    );
+    if (bestaande.length > 0) {
+        return res.status(409).json({ fout: 'E-mailadres is al in gebruik' });
+    }
+
+    const hash = await bcrypt.hash(password, 10);
+
+    const [user] = await pool.execute(
+        'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
+        [username, email, hash]
+    );
+
+    res.status(201).json({ id: user.insertId, bericht: 'Account aangemaakt' });
+});
+
 app.get('/api/gip_test', (req, res) => {
     res.json({ bericht: 'server werkt' });
 });
