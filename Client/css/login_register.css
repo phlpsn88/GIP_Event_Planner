@@ -16,6 +16,7 @@ body {
   padding: 48px 32px 40px;
   width: 100%;
   max-width: 420px;
+  max-height: 95vh;
   border: 1px solid var(--border-color-grey);
   box-shadow: 0 8px 32px var(--box-shadow-black);
   position: relative;
@@ -27,7 +28,7 @@ body {
 h1 {
   text-align: center;
   font-size: 2.1rem;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   color: var(--light-color-purple);
   letter-spacing: 1px;
 }
@@ -122,7 +123,7 @@ input[type="checkbox"] {
 
 .link {
   text-align: center;
-  margin-top: 28px;
+  margin-top: 15px;
   font-size: 0.97rem;
   color: var(--secondary-color-purple);
 }
