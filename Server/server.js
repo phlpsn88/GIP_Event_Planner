@@ -27,9 +27,12 @@ const pool = mysql.createPool({
     database: 'event_planner'
 });
 
+// ── POST /api/register — nieuw account aanmaken ────────────────────────────────
 app.post('/api/register', async (req, res) => {
+    // req.body bevat de JSON die het registratieformulier meestuurde
     const { username, email, password } = req.body;
 
+    // Validatie: zijn alle verplichte velden ingevuld?
     if (!username || !email || !password) {
         return res.status(400).json({ fout: 'Alle velden zijn verplicht' });
     }
@@ -37,20 +40,31 @@ app.post('/api/register', async (req, res) => {
         return res.status(400).json({ fout: 'Wachtwoord moet minstens 8 tekens zijn' });
     }
 
+    // Controleer of dit e-mailadres al in gebruik is
     const [bestaande] = await pool.execute(
         'SELECT ID FROM users WHERE email = ?', [email]
     );
     if (bestaande.length > 0) {
+        // 409 Conflict: het e-mailadres is al bezet
         return res.status(409).json({ fout: 'E-mailadres is al in gebruik' });
     }
 
+    // bcrypt.hash(wachtwoord, 10):
+    //   - wachtwoord: de leesbare tekst die de gebruiker intypte
+    //   - 10: het aantal "salt rounds" — hoe meer rounds, hoe veiliger maar trager.
+    //         10 is de industriestandaard: veilig én snel genoeg voor login.
+    // De hash ziet er zo uit: '$2b$10$...' (altijd 60 tekens lang)
     const hash = await bcrypt.hash(password, 10);
 
+    // Sla de gebruiker op — nooit het originele wachtwoord, altijd de hash!
+    // rol hoeven we niet mee te geven: de database gebruikt DEFAULT 'Gebruiker'
     const [user] = await pool.execute(
         'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
         [username, email, hash]
     );
 
+    // 201 Created: account succesvol aangemaakt
+    // r.insertId = het AUTO_INCREMENT-id van de nieuwe gebruiker
     res.status(201).json({ id: user.insertId, bericht: 'Account aangemaakt' });
 });
 
