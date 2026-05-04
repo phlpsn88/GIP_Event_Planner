@@ -26,10 +26,11 @@ Zorg dat de volgende software geïnstalleerd is:
     `npm install`
 
 4. Maak een .env bestand aan in de root van het project en voeg toe:
-    `DB_HOST=localhost`
-    `DB_USERS=root`
-    `DB_PASSWORD=`
-    `DB_NAME=event_planner`
+    `DB_HOST='localhost'`
+    `DB_PORT=3306`
+    `DB_USER='jouw_username'`
+    `DB_PASSWORD='jouw_wachtwoord'`
+    `DB_NAME='event_planner'`
 
 5. Start de server:
     `npm start`
@@ -44,11 +45,13 @@ Zorg dat de volgende software geïnstalleerd is:
 1. Open je browser en ga naar:
     http://localhost:3000
 
-2. Maak een account aan.
+2. Maak een account aan via de knop "registreer nu".
 
-3. Log in.
+3. Je wordt doorgestuurd naar de login pagina, log in met je gegevens.
 
-4. Klik op "Evenementen beheren" om naar de overzichtspagina te gaan. Hier kan je eventementen aanmaken, aanpassen en verwijderen.
+4. Je komt terecht op de overzichtspagina. Hier kan je eventementen aanmaken, aanpassen en verwijderen.
+
+5. Op de overzichtspagina, klik op het icoontje in de rechterbovenhoek om uit te loggen.
 
 ## Technologieën
 - Node.js

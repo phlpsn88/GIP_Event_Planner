@@ -139,6 +139,10 @@ input[type="checkbox"] {
   text-decoration: underline;
 }
 
+.error-message-authentication {
+  color: lightcoral;
+}
+
 /* Achtergronddecoratie */
 .decor-lock,
 .decor-lock2 {

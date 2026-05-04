@@ -8,21 +8,22 @@
     <link rel="icon" href="img/calendar-days-regular-full.svg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login_register.css">
+    <script type="module" src="js/auth.js"></script>
 </head>
 
 <body>
     <div class="container">
         <h1>Welkom terug</h1>
 
-        <form>
+        <form id="loginForm">
             <div class="form-group">
                 <label>E-mail</label>
-                <input type="email" placeholder="E-mail" required autocomplete="email">
+                <input id="email" type="email" placeholder="E-mail" required autocomplete="email">
             </div>
 
             <div class="form-group">
                 <label>Wachtwoord</label>
-                <input type="password" placeholder="Wachtwoord" required autocomplete="current-password">
+                <input id="password" type="password" placeholder="Wachtwoord" required autocomplete="current-password">
             </div>
 
             <div class="options">
@@ -36,6 +37,8 @@
 
             <button type="submit" class="btn">Inloggen</button>
         </form>
+
+        <p id="foutmelding" class="error-message-authentication link" hidden></p>
 
         <div class="link">
             Nog geen account? <a href="register.html">Registreer nu</a>

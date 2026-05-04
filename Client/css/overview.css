@@ -4,8 +4,14 @@
 header {
     background: var(--background-gradient-purple);
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
+}
+
+.logout-button {
+    padding-right: 2%;
+    font-size: 175%;
 }
 
 h1 {

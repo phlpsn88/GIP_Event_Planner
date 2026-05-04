@@ -2,6 +2,7 @@ import express from 'express';
 import mysql from 'mysql2/promise';
 import bcrypt from 'bcrypt';
 import session from 'express-session';
+import 'dotenv/config';
 
 const app = express();
 const port = 3000;
@@ -20,12 +21,15 @@ app.use(session({
 }));
 
 const pool = mysql.createPool({
-    host: 'localhost',
-    port: 3306,
-    user: 'root',
-    password: 'root',
-    database: 'event_planner'
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
+
+const [rows] = await pool.query("SELECT DATABASE() as db");
+console.log("Connected to database:", rows[0].db);
 
 // ── POST /api/register — nieuw account aanmaken ────────────────────────────────
 app.post('/api/register', async (req, res) => {
@@ -68,8 +72,35 @@ app.post('/api/register', async (req, res) => {
     res.status(201).json({ id: user.insertId, bericht: 'Account aangemaakt' });
 });
 
-app.get('/api/gip_test', (req, res) => {
-    res.json({ bericht: 'server werkt' });
+app.post('/api/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    const [rijen] = await pool.execute(
+        'SELECT * FROM users WHERE email = ?', [email]
+    );
+
+    if (rijen.length === 0) {
+        return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    const gebruiker = rijen[0];
+
+    const klopt = await bcrypt.compare(password, gebruiker.password);
+    if (!klopt) {
+        return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
+    }
+
+    req.session.gebruikerId = gebruiker.id;
+    req.session.username = gebruiker.username;
+    req.session.role = gebruiker.role;
+
+    res.json({ bericht: 'Ingelogd', naam: gebruiker.username, rol: gebruiker.role });
+});
+
+app.post('/api/logout', (req, res) => {
+    req.session.destroy(() => {
+        res.json({ bericht: 'Uitgelogd' });
+    });
 });
 
 app.listen(port, () => {

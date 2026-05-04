@@ -4,6 +4,7 @@
 
 // ── Registratie ───────────────────────────────────────────────────────────────
 const registerForm = document.getElementById('registerForm');
+const fout = document.getElementById('foutmelding');
 
 // Email validatie functie
 const validateEmail = (email) => {
@@ -27,7 +28,6 @@ if (registerForm) {
         const username = document.getElementById('naam').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('wachtwoord').value;
-        const fout = document.getElementById('foutmelding');
         const acceptedTerms = document.getElementById('terms').checked;
 
         fout.hidden = true;
@@ -57,6 +57,32 @@ if (registerForm) {
                 fout.textContent = data.fout;   // tekst van de server instellen
                 fout.hidden = false;            // element zichtbaar maken
             }
+        }
+    });
+}
+
+// ── Login ─────────────────────────────────────────────────────────────────────
+const loginForm = document.getElementById('loginForm');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+            window.location.href = data.role == 'admin' ? '/admin.html' : '/overview.html';
+        } else {
+            fout.textContent = data.fout;
+            fout.hidden = false;
         }
     });
 }
