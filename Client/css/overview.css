@@ -14,6 +14,10 @@ header {
     font-size: 175%;
 }
 
+.logout-button:hover {
+    cursor: pointer;
+}
+
 h1 {
     padding: 1.5rem;
     font-size: 2rem;
