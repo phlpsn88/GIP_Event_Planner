@@ -97,6 +97,7 @@ app.post('/api/login', async (req, res) => {
     res.json({ bericht: 'Ingelogd', naam: gebruiker.username, rol: gebruiker.role });
 });
 
+// ── POST /api/logout — uitloggen ───────────────────────────────────────────────
 app.post('/api/logout', (req, res) => {
     req.session.destroy(() => {
         res.json({ bericht: 'Uitgelogd' });
