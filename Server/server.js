@@ -90,7 +90,7 @@ app.post('/api/login', async (req, res) => {
         return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
     }
 
-    req.session.gebruikerId = gebruiker.id;
+    req.session.userId = gebruiker.id;
     req.session.username = gebruiker.username;
     req.session.role = gebruiker.role;
 
@@ -102,6 +102,13 @@ app.post('/api/logout', (req, res) => {
     req.session.destroy(() => {
         res.json({ bericht: 'Uitgelogd' });
     });
+});
+
+app.get('/api/mij', (req, res) => {
+    if (!req.session.userId) {
+        return res.status(401).json({ fout: 'Niet ingelogd' });
+    }
+    res.json({ id: req.session.userId, name: req.session.username, role: req.session.role });
 });
 
 app.listen(port, () => {

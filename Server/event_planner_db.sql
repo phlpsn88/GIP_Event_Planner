@@ -25,5 +25,5 @@ CREATE TABLE events (
     location VARCHAR(150),
     status BOOL NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (user_id) REFERENCES users(ID) ON DELETE SET NULL;
+    FOREIGN KEY (user_id) REFERENCES users(ID) ON DELETE SET NULL
 );
