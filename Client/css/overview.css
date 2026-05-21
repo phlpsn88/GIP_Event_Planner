@@ -9,6 +9,13 @@ header {
     padding: 1.5rem;
 }
 
+.username {
+    margin-left: 70%;
+    color: var(--primary-color-white);
+    font-size: 150%;
+    font-weight: bold;
+}
+
 .logout-button {
     padding-right: 2%;
     font-size: 175%;
