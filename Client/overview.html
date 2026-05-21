@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/overview.css">
     <script type="module" src="js/delete_popup.js"></script>
     <script type="module" src="js/logout.js"></script>
+    <script type="module" src="js/overview.js"></script>
     <title>Event planner</title>
 </head>
 <body>
@@ -19,6 +20,7 @@
             </a>
         </div>
         <div class="logout-button" title="Log uit">
+            <span id="userName"></span>
             <a id="logoutButton">
                 <i class="fa-solid fa-arrow-right-from-bracket" style="color: rgb(255, 255, 255);"></i>
             </a>
@@ -31,56 +33,7 @@
             <a href="create_event.html" class="btn btn-primary create-event">Nieuw event</a>
         </div>
 
-        <section class="events">
-            <!-- dummy data; later met PHP vullen -->
-            <article class="event-card" data-event-id="1">
-                <div class="event-main">
-                    <h3 class="event-title">Teamvergadering</h3>
-                    <p class="description">Bespreking planning</p>
-                </div>
-
-                <div class="event-meta">
-                    <span class="date">2026-01-20</span>
-                    <span class="location">Kantoor Hasselt</span>
-                </div>
-
-                <div class="event-footer">
-                    <span class="status canceled">Geannuleerd</span>
-                    <div class="actions">
-                        <a href="edit_event.html" title="Event aanpassen">
-                            <i class="fa-regular fa-pen-to-square edit"></i>
-                        </a>
-                        <button class="delete-btn" title="Event verwijderen">
-                            <i class="fa-regular fa-trash-can delete"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="event-card" data-event-id="2">
-                <div class="event-main">
-                    <h3 class="event-title">Aankondiging</h3>
-                    <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam officia, ab animi excepturi qui optio delectus impedit neque quas ipsam?</p>
-                </div>
-
-                <div class="event-meta">
-                    <span class="date">2026-02-15</span>
-                    <span class="location">Kantoor Tongeren</span>
-                </div>
-
-                <div class="event-footer">
-                    <span class="status active">Actief</span>
-                    <div class="actions">
-                        <a href="edit_event.html" title="Event aanpassen">
-                            <i class="fa-regular fa-pen-to-square edit"></i>
-                        </a>
-                        <button class="delete-btn" title="Event verwijderen">
-                            <i class="fa-regular fa-trash-can delete"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-        </section>
+        <section class="events-verview">Laden...</section>
     </main>
 
     <!-- DELETE MODAL -->

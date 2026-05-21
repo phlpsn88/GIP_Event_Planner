@@ -53,7 +53,7 @@ h1 {
 /* =========================
    EVENTS CARDS
 ========================= */
-.events {
+.events-overview {
     display: grid;
     gap: 1rem;
     padding: 0 1rem;

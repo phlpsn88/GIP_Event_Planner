@@ -31,6 +31,40 @@ const pool = mysql.createPool({
 const [rows] = await pool.query("SELECT DATABASE() as db");
 console.log("Connected to database:", rows[0].db);
 
+function vereisLogin(req, res, next) {
+    if (!req.session.userId) {
+        return res.status(401).json({ fout: 'Inloggen vereist' });
+    }
+    next();
+}
+
+// ── GET /api/mijn-events — alleen eigen events ───
+app.get('/api/mijn-events', vereisLogin, async (req, res) => {
+    const [rijen] = await pool.execute(
+        'SELECT * FROM events WHERE user_id = ? ORDER BY event_date ASC',
+        [req.session.userId]
+    );
+    res.json(rijen);
+});
+
+// ── POST /api/events — nieuwe event aanmaken ──────
+app.post('/api/events', vereisLogin, async (req, res) => {
+    console.log("user", req.session.userId);
+
+    const { title, description, event_date, location, status } = req.body;
+
+    if (!title || !event_date ) {
+        return res.status(400).json({ fout: 'Titel en datum zijn verplicht' });
+    }
+    const [resultaat] = await pool.execute(
+        `INSERT INTO events
+        (title, description, event_date, location, status, user_id)
+        VALUES (?, ?, ?, ?, ?, ?)`,
+        [title, description || null, event_date, location || null, status || true, req.session.userId]
+    );
+    res.status(201).json({ id: resultaat.insertId, bericht: 'Evenement aangemaakt' });
+});
+
 // ── POST /api/register — nieuw account aanmaken ────────────────────────────────
 app.post('/api/register', async (req, res) => {
     // req.body bevat de JSON die het registratieformulier meestuurde
