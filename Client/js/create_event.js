@@ -2,30 +2,28 @@ async function init() {
     // Vraag de server: wie is er momenteel ingelogd?
     // GET /api/mij kijkt naar de sessie-cookie die de browser meestuurt.
     const response = await fetch('/api/mij');
-    alert(response);
 
     if (!response.ok) {
         // 401 = niet ingelogd → doorsturen naar loginpagina
         // Dit voorkomt dat niet-ingelogde bezoekers het dashboard zien
-        window.location.href = '/login.html';
+        // window.location.href = '/login.html';
         return; // stop de functie — de rest mag niet uitgevoerd worden
     }
 
     const gebruiker = await response.json();
-    alert(gebruiker.username);
+
+    document.getElementById('event-form').addEventListener('submit', slaEventOp);
 }
 
 async function slaEventOp(e) {
     e.preventDefault();
-
-    console.log("submit fired");
 
     const body = {
         title: document.getElementById('title').value,
         description: document.getElementById('description').value,
         event_date: document.getElementById('date').value,
         location: document.getElementById('location').value,
-        status: document.getElementById('status').value,
+        status: parseInt(document.getElementById('status').value),
     };
 
     const response = await fetch('/api/events', {

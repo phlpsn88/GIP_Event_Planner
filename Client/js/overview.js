@@ -15,6 +15,11 @@ async function init() {
     }
 
     laadEvents();
+
+    document.getElementById('logoutButton').addEventListener('click', async () => {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/login.html';
+    });
 }
 
 let eventCache = [];
@@ -39,17 +44,17 @@ async function laadEvents() {
             </div>
 
             <div class="event-meta">
-                <span class="date">${new Date(e.date).toLocaleDateString('nl-BE')}</span>
+                <span class="date">${new Date(e.event_date).toLocaleDateString('nl-BE')}</span>
                 <span class="location">${e.location || '-'}</span>
             </div>
 
            <div class="event-footer">
-                <span class="status active">${e.status}</span>
+                <span class="status active">${e.status ? "Actief" : "Geannuleerd"}</span>
                 <div class="actions">
                     <a href="edit_event.html" title="Event aanpassen" data-id="${e.id}">
                         <i class="fa-regular fa-pen-to-square edit"></i>
                     </a>
-                    <button class="delete-btn" title="Event verwijderen" data-id="${e.id}">
+                    <button class="delete-btn" title="Event verwijderen" data-id="${e.id}" id:"deleteBtn">
                         <i class="fa-regular fa-trash-can delete"></i>
                     </button>
                 </div>
@@ -58,3 +63,5 @@ async function laadEvents() {
         `).join('')}
     `;
 }
+
+init();

@@ -49,8 +49,6 @@ app.get('/api/mijn-events', vereisLogin, async (req, res) => {
 
 // ── POST /api/events — nieuwe event aanmaken ──────
 app.post('/api/events', vereisLogin, async (req, res) => {
-    console.log("user", req.session.userId);
-
     const { title, description, event_date, location, status } = req.body;
 
     if (!title || !event_date ) {
@@ -60,9 +58,21 @@ app.post('/api/events', vereisLogin, async (req, res) => {
         `INSERT INTO events
         (title, description, event_date, location, status, user_id)
         VALUES (?, ?, ?, ?, ?, ?)`,
-        [title, description || null, event_date, location || null, status || true, req.session.userId]
+        [title, description || null, event_date, location || null, status || 1, req.session.userId]
     );
     res.status(201).json({ id: resultaat.insertId, bericht: 'Evenement aangemaakt' });
+});
+
+// ── DELETE /api/activiteiten/:id — eigen activiteit verwijderen
+app.delete('/api/events/:ID', vereisLogin, async (req, res) => {
+    const [resultaat] = await pool.execute(
+        'DELETE FROM events WHERE ID=? AND user_id=?',
+        [req.params.ID, req.session.userId]
+    );
+    if (resultaat.affectedRows === 0) {
+        return res.status(403).json({ fout: 'Activiteit niet gevonden of geen toegang' });
+    }
+    res.status(204).end();
 });
 
 // ── POST /api/register — nieuw account aanmaken ────────────────────────────────
@@ -124,7 +134,7 @@ app.post('/api/login', async (req, res) => {
         return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
     }
 
-    req.session.userId = gebruiker.id;
+    req.session.userId = gebruiker.ID;
     req.session.username = gebruiker.username;
     req.session.role = gebruiker.role;
 
@@ -142,7 +152,7 @@ app.get('/api/mij', (req, res) => {
     if (!req.session.userId) {
         return res.status(401).json({ fout: 'Niet ingelogd' });
     }
-    res.json({ id: req.session.userId, name: req.session.username, role: req.session.role });
+    res.json({ id: req.session.userId, username: req.session.username, role: req.session.role });
 });
 
 app.listen(port, () => {
