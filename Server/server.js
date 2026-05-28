@@ -38,6 +38,21 @@ function vereisLogin(req, res, next) {
     next();
 }
 
+// function isAdmin(req, res, next) {
+//     if (!req.session.userId) {
+//         return res.status(401).json({ fout: 'Inloggen vereist' });
+//     }
+//     if (req.session.role !==)
+// }
+
+app.get('/api/events/:ID', async (req, res) => {
+    const [rijen] = await pool.execute(
+        'SELECT * FROM events WHERE ID = ?',
+        [req.params.ID]
+    );
+    res.json(rijen[0]);
+});
+
 // ── GET /api/mijn-events — alleen eigen events ───
 app.get('/api/mijn-events', vereisLogin, async (req, res) => {
     const [rijen] = await pool.execute(
@@ -63,7 +78,56 @@ app.post('/api/events', vereisLogin, async (req, res) => {
     res.status(201).json({ id: resultaat.insertId, bericht: 'Evenement aangemaakt' });
 });
 
-// ── DELETE /api/activiteiten/:id — eigen activiteit verwijderen
+// ── PUT /api/events/:ID
+app.put('/api/events/:ID', async (req, res) => {
+    const { title, description, event_date, location, status } = req.body;
+
+    const isAdmin = req.session.role === 'admin';
+
+    let query;
+    let params;
+
+    if (isAdmin) {
+        query = `
+        UPDATE events
+        SET title=?, description=?, event_date=?, location=?, status=?
+        WHERE ID=?
+        `;
+        params = [
+            title,
+            description || null,
+            event_date,
+            location || null,
+            status,
+            req.params.ID
+        ];
+    } else {
+        query = `
+        UPDATE events
+        SET title=?, description=?, event_date=?, location=?, status=?
+        WHERE ID=?
+        `;
+        params = [
+            title,
+            description || null,
+            event_date,
+            location || null,
+            status,
+            req.params.ID,
+            req.session.userId
+        ];
+    }
+
+    const [result] = await pool.execute(query, params);
+
+    if (result.affectedRows === 0) {
+        return res.status(403).json({ fout: "Geen toegang tot dit event" });
+    }
+    
+    res.json({ bericht: "Event bijgewerkt" });
+});
+
+// ── DELETE — eigen activiteit verwijderen
 app.delete('/api/events/:ID', vereisLogin, async (req, res) => {
     const [resultaat] = await pool.execute(
         'DELETE FROM events WHERE ID=? AND user_id=?',

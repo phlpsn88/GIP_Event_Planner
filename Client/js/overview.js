@@ -37,7 +37,7 @@ async function laadEvents() {
 
     container.innerHTML = `
     ${events.map(e => `
-        <article class="event-card" data-event-id="${e.id}">
+        <article class="event-card">
             <div class="event-main">
                 <h3 class="event-title">${e.title}</h3>
                 <p class="description">${e.description || ''}</p>
@@ -51,7 +51,7 @@ async function laadEvents() {
            <div class="event-footer">
                 <span class="status active">${e.status ? "Actief" : "Geannuleerd"}</span>
                 <div class="actions">
-                    <a href="edit_event.html" title="Event aanpassen" data-id="${e.id}">
+                    <a href="edit_event.html?id=${e.ID}" title="Event aanpassen" data-id="${e.id}">
                         <i class="fa-regular fa-pen-to-square edit"></i>
                     </a>
                     <button class="delete-btn" title="Event verwijderen" data-id="${e.id}" id:"deleteBtn">

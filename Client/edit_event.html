@@ -8,13 +8,13 @@
     <link rel="icon" href="img/calendar-days-regular-full.svg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/edit_create_event.css">
-    <script src="js/confirm_cancel_popup.js" defer></script>
-    <script src="js/edit_event.js" defer></script>
+    <script type="module" src="js/confirm_cancel_popup.js"></script>
+    <script type="module" src="js/edit_event.js"></script>
 </head>
 <body>
   <header>
     <div class="logo">
-      <a href="../../index.html">
+      <a href="index.html">
         Vision<span>Events</span>
       </a>
     </div>
@@ -23,34 +23,33 @@
   <main>
     <section class="form-section">
       <h2>Evenement aanpassen</h2>
-      <form class="event-form" method="post" action="" id="editForm">
+      <form class="event-form" id="editForm">
         <div class="form-input">
           <label for="title">
             Titel
-            <input type="text" value="Game Night" name="title" id="title">
+            <input type="text" name="title" id="title">
           </label>
           <p class="empty-field" id="titleError" style="display: none;">Titel mag niet leeg zijn</p>
         
           <label for="description">
             Beschrijving
-            <textarea name="description" id="description">Bring your console 🎮</textarea>
+            <textarea name="description" id="description"></textarea>
           </label>
-          <p class="empty-field"></p>
         
           <div class="form-select">
             <label for="date">
               Datum
-              <input type="date" value="2026-03-23" name="date" id="date">
+              <input type="date" name="date" id="date">
             </label>
             <label for="location">
               Locatie
-              <input type="text" value="Bilzen" name="location" id="location">
+              <input type="text" name="location" id="location">
             </label>
             <label>
               Status
               <select name="status" id="status">
-                <option selected>Actief</option>
-                <option>Geannuleerd</option>
+                <option value="1">Actief</option>
+                <option value="0">Geannuleerd</option>
               </select>
             </label>
           </div>
