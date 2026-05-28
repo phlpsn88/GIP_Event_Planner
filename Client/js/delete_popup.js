@@ -1,15 +1,6 @@
-const deleteButtons = document.querySelectorAll('.delete');
-const modal = document.querySelector('#deleteModal');
+const modal = document.getElementById('deleteModal');
 const cancelBtn = document.getElementById('cancelDelete');
 const confirmBtn = document.getElementById('confirmDelete');
-
-// open modal
-deleteButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        // Add class "show" to modal
-        modal.classList.add("show");
-    });
-});
 
 // Cancel
 cancelBtn.addEventListener("click", () => {
@@ -18,8 +9,13 @@ cancelBtn.addEventListener("click", () => {
 });
 
 // Confirm delete
-confirmBtn.addEventListener("click", () => {
-    console.log("Event verwijderen");
+confirmBtn.addEventListener("click", async () => {
+    if (!selectedEventId) return;
+
+    await fetch('/api/events/' + selectedEventId, {
+        method: 'DELETE'
+    });
 
     modal.classList.remove("show");
+    laadEvents();
 });

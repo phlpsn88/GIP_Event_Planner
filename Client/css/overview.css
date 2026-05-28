@@ -92,6 +92,10 @@ h1 {
     font-size: 0.9rem;
 }
 
+.admin-description {
+    max-width: 40%;
+}
+
 .event-meta {
     display: flex;
     flex-direction: column;
@@ -166,6 +170,10 @@ h1 {
         border-radius: 7px;
         align-items: center;
         text-align: center;
+    }
+
+    .admin {
+        grid-template-columns: 2fr 1.5fr 1fr 1fr 1.5fr 1fr 1fr;
     }
 
     .event-title {

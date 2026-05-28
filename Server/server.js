@@ -38,14 +38,29 @@ function vereisLogin(req, res, next) {
     next();
 }
 
-// function isAdmin(req, res, next) {
-//     if (!req.session.userId) {
-//         return res.status(401).json({ fout: 'Inloggen vereist' });
-//     }
-//     if (req.session.role !==)
-// }
+function isAdmin(req, res, next) {
+    if (!req.session.userId) {
+        return res.status(401).json({ fout: 'Inloggen vereist' });
+    }
+    if (req.session.role !== 'admin') {
+        return res.status(403).json({ fout: 'Geen toegang' });
+    }
+    next();
+}
 
-app.get('/api/events/:ID', async (req, res) => {
+app.get('/api-admin/events', vereisLogin, async (req, res) => {
+    const rijen = await pool.execute(`
+        SELECT
+            e.*,
+            u.username AS aangemaakt_door
+        FROM events e
+        LEFT JOIN users u ON u.ID = e.user_id
+        ORDER BY e.event_date ASC
+        `);
+        res.json(rijen[0]);
+});
+
+app.get('/api/events/:ID', vereisLogin, async (req, res) => {
     const [rijen] = await pool.execute(
         'SELECT * FROM events WHERE ID = ?',
         [req.params.ID]
@@ -79,7 +94,7 @@ app.post('/api/events', vereisLogin, async (req, res) => {
 });
 
 // ── PUT /api/events/:ID
-app.put('/api/events/:ID', async (req, res) => {
+app.put('/api/events/:ID', vereisLogin, async (req, res) => {
     const { title, description, event_date, location, status } = req.body;
 
     const isAdmin = req.session.role === 'admin';
@@ -129,10 +144,21 @@ app.put('/api/events/:ID', async (req, res) => {
 
 // ── DELETE — eigen activiteit verwijderen
 app.delete('/api/events/:ID', vereisLogin, async (req, res) => {
-    const [resultaat] = await pool.execute(
-        'DELETE FROM events WHERE ID=? AND user_id=?',
-        [req.params.ID, req.session.userId]
-    );
+    const isAdmin = req.session.role === 'admin';
+
+    let query;
+    let params;
+
+    if (isAdmin) {
+        query = 'DELETE FROM events WHERE ID=?';
+        params = [req.params.ID];
+    } else {
+        query = 'DELETE FROM events WHERE ID=? AND user_id=?';
+        params = [req.params.ID, req.session.userId];
+    }
+
+    const [resultaat] = await pool.execute(query, params);
+
     if (resultaat.affectedRows === 0) {
         return res.status(403).json({ fout: 'Activiteit niet gevonden of geen toegang' });
     }
