@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registreren</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" href="img/calendar-days-regular-full.svg">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/login_register.css">
   <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/conditions.js"></script>
 </head>
-
 <body>
   <div class="container">
     <h1>Beginnen</h1>
@@ -33,7 +34,7 @@
 
       <div class="checkbox-container">
         <input type="checkbox" id="terms">
-        <label for="terms">Ik accepteer de voorwaarden</label>
+        <label for="terms">Ik accepteer de <a href="#" id="openTerms" class="link conditions">voorwaarden</a></label>
       </div>
 
       <button type="submit" class="btn">Registreer</button>
@@ -44,14 +45,52 @@
     <div class="link">
       Heeft u al een account? <a href="login.html">Log in</a>
     </div>
-    
+
     <div class="link">
-      <a href="index.html">< Terug naar home</a>
+      <a href="index.html">
+        < Terug naar home</a>
     </div>
   </div>
 
   <!-- Achtergrond -->
   <div class="decor-lock">🔒</div>
   <div class="decor-lock2">🔒</div>
+
+  <div id="termsModal" class="modal">
+    <div class="modal-content terms-modal">
+      <h2>Gebruiksvoorwaarden</h2>
+
+      <p>
+        Welkom bij VisionEvents. Door een account aan te maken en gebruik te maken
+        van deze applicatie ga je akkoord met deze gebruiksvoorwaarden.
+      </p>
+
+      <h3>Account</h3>
+      <p>
+        Je bent verantwoordelijk voor het vertrouwelijk houden van je accountgegevens
+        en wachtwoord.
+      </p>
+
+      <h3>Gebruik van de applicatie</h3>
+      <p>
+        VisionEvents is bedoeld om evenementen te plannen, beheren en opvolgen.
+        Misbruik van het platform is niet toegestaan.
+      </p>
+
+      <h3>Privacy</h3>
+      <p>
+        De applicatie bewaart enkel gegevens die nodig zijn voor het functioneren
+        van het platform, zoals gebruikersnaam, e-mailadres en evenementgegevens.
+      </p>
+
+      <h3>Schoolproject</h3>
+      <p>
+        VisionEvents werd ontwikkeld als schoolproject en is uitsluitend bedoeld
+        voor educatieve doeleinden.
+      </p>
+
+      <button id="closeTerms" class="btn">Sluiten</button>
+    </div>
+  </div>
 </body>
 </html>
