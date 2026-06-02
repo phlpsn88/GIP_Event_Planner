@@ -9,20 +9,17 @@ header {
     padding: 1.5rem;
 }
 
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
 .username {
-    margin-left: 70%;
     color: var(--primary-color-white);
-    font-size: 150%;
     font-weight: bold;
-}
-
-.logout-button {
-    padding-right: 2%;
-    font-size: 175%;
-}
-
-.logout-button:hover {
-    cursor: pointer;
+    font-size: 125%;
 }
 
 h1 {
@@ -158,6 +155,24 @@ h1 {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .user {
+        flex-direction: row;
+    }
+
+    .username {
+        font-size: 175%;
+    }
+    
+    .logout-button {
+        padding-right: 2%;
+        padding-left: 2%;
+        font-size: 175%;
+    }
+    
+    .logout-button:hover {
+        cursor: pointer;
     }
 
     .event-card {

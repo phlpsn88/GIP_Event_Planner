@@ -1,44 +1,3 @@
-:root {
-    /* Hoofdkleuren */
-    --primary-color-purple: #a855f7;
-    --primary-color-black: #000;
-    --primary-color-white: #fff;
-    --primary-color-red: #dc2626;
-
-    /* Secundaire / accent kleuren */
-    --secondary-color-purple: #c386ff;
-    --secondary-color-white: #f3f3f3;
-    --secondary-color-red: #b42318;
-
-    /* Tinten van paars */
-    --light-color-purple: #e9d5ff;
-    --dark-color-purple: #9333ea;
-    --purple-main: #a855f7;
-    --purple-dark: #9333ea;
-    --purple-darker: #7e22ce;
-    --purple-light: #c084fc;
-    --purple-pale: #d1b5ff;
-    --purple-main-glow: #a855f7;
-
-    /* Achtergronden & overlays */
-    --bg-body: #0f0f17;
-    --bg-grey: rgba(255, 255, 255, 0.08);
-    --bg-card: rgba(30, 25, 45, 0.55);
-    --background-gradient-purple: linear-gradient(135deg, #791d95, #b13aed);
-
-    /* Glow / schaduw */
-    --glow: rgba(168, 85, 247, 0.45);
-    --box-shadow-purple: rgba(147, 51, 234, 0.4);
-    --box-shadow-black: rgba(0, 0, 0, 0.4);
-
-    /* Borders */
-    --border-grey: rgba(255, 255, 255, 0.12);
-    --border: rgba(168, 85, 247, 0.18);
-
-    /* Tekstkleuren */
-    --white: #ffffff;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -47,7 +6,7 @@
 
 body {
     background: var(--bg-body);
-    color: var(--white);
+    color: var(--primary-color-white);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     min-height: 100vh;
     line-height: 1.6;
@@ -87,6 +46,25 @@ body {
     flex-wrap: wrap;
 }
 
+.logged-in {
+    /* min-width: 30%; */
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.username {
+    color: var(--primary-color-white);
+    font-weight: bold;
+    font-size: 125%;
+}
+
 .btn {
     padding: clamp(0.65rem, 2vw, 0.85rem) clamp(1.1rem, 3vw, 1.6rem);
     border-radius: 999px;
@@ -104,7 +82,7 @@ body {
 
 .btn-register {
     background: var(--purple-main);
-    color: var(--white);
+    color: var(--primary-color-white);
 }
 
 .btn-register:hover {
@@ -114,9 +92,9 @@ body {
 }
 
 .btn-login {
-    background: var(--bg-grey);
-    color: var(--white);
-    border: 1px solid var(--border-grey);
+    background: var(--background-color-grey);
+    color: var(--primary-color-white);
+    border: 1px solid var(--border-color-grey);
 }
 
 .btn-login:hover {
@@ -159,7 +137,7 @@ body {
     padding: clamp(0.9rem, 2.5vw, 1.2rem) clamp(1.8rem, 5vw, 3rem);
     font-size: clamp(1rem, 3vw, 1.25rem);
     background: linear-gradient(45deg, var(--purple-darker), var(--purple-light));
-    color: var(--white);
+    color: var(--primary-color-white);
     border: none;
     border-radius: 999px;
     cursor: pointer;
@@ -403,12 +381,14 @@ footer {
 }
 
 .contact a:hover {
-    color: var(--white);
+    color: var(--primary-color-white);
 }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-    .hero, .main-content { padding: 1.2rem 0.8rem; }
+    .hero, .main-content {
+        padding: 1.2rem 0.8rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -418,20 +398,67 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-    .nav-buttons { width: 100%; justify-content: center; }
-    .btn { flex: 1; justify-content: center; }
-    /* .highlights { grid-template-columns: 1fr; gap: 2rem; } */
+    .header {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    
+    .nav-buttons {
+        width: 100%;
+        /* justify-content: center; */
+    }
+
+    .nav-buttons.logged-in {
+        width: unset;
+    }
+    
+    .btn {
+        flex: 1;
+        justify-content: center;
+    }
 }
 
 @media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .user {
+        flex-direction: row;
+    }
+
+    .username {
+        font-size: 175%;
+    }
+    
+    .logout-button {
+        padding-right: 2%;
+        padding-left: 2%;
+        font-size: 175%;
+    }
+    
+    .logout-button:hover {
+        cursor: pointer;
+    }
+
     .filler-section {
         flex-direction: row;
         text-align: left;
         gap: 4rem;
     }
-    .filler-text { flex: 1; max-width: 45%; }
-    .filler-image { flex: 1; max-width: 55%; }
+    
+    .filler-text {
+        flex: 1;
+        max-width: 45%;
+    }
+    
+    .filler-image {
+        flex: 1;
+        max-width: 55%;
+    }
 }
 
 @media (max-width: 900px) {
