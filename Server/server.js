@@ -16,7 +16,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 60 * 4
+        httpOnly: true
     }
 }));
 
@@ -207,7 +207,7 @@ app.post('/api/register', async (req, res) => {
 });
 
 app.post('/api/login', async (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, remember } = req.body;
 
     const [rijen] = await pool.execute(
         'SELECT * FROM users WHERE email = ?', [email]
@@ -223,12 +223,25 @@ app.post('/api/login', async (req, res) => {
     if (!klopt) {
         return res.status(401).json({ fout: 'Ongeldig e-mailadres of wachtwoord' });
     }
-
+    
     req.session.userId = gebruiker.ID;
     req.session.username = gebruiker.username;
     req.session.role = gebruiker.role;
 
-    res.json({ bericht: 'Ingelogd', naam: gebruiker.username, rol: gebruiker.role });
+    // "onthoud mij" logica
+    if (req.body.remember) {
+        req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 7;
+    } else {
+        req.session.cookie.maxAge = null;
+    }
+
+    req.session.save(() => {
+        res.json({
+            bericht: 'Ingelogd',
+            naam: gebruiker.username,
+            rol: gebruiker.role
+        });
+    });
 });
 
 // ── POST /api/logout — uitloggen ───────────────────────────────────────────────

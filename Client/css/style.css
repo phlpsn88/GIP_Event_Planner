@@ -128,7 +128,7 @@ main {
 .footer {
     background: var(--background-gradient-purple);
     color: var(--primary-color-white);
-    padding: 60px 20px 40px;
+    padding: 50px 15px 30px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -141,10 +141,11 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 3rem;
     align-items: start;
     width: 100%;
+    text-align: center;
 }
   
 /* Typografie & styling */
@@ -156,6 +157,12 @@ main {
     color: var(--light-color-purple);
     letter-spacing: 0.5px;
 }
+
+.social-icons,
+.about-header,
+.contact-item {
+    justify-content: center;
+}
   
 .social-icons {
     display: flex;
@@ -163,8 +170,8 @@ main {
 }
   
 .social-link img {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     transition: transform 0.25s ease;
 }
   
@@ -222,29 +229,18 @@ main {
 }
   
 /*Responsive*/
-@media (max-width: 900px) {
+@media (min-width: 500px){
+    .footer {
+        padding: 60px 20px 40px;
+    }
+
+    .social-link img {
+        width: 48px;
+        height: 48px;
+    }
+
     .footer-content {
-      grid-template-columns: 1fr;
-      text-align: center;
-      gap: 3rem;
-    }
-  
-    .socials,
-    .about,
-    .contact {
-      margin-bottom: 0;
-    }
-  
-    .social-icons {
-      justify-content: center;
-    }
-  
-    .about-header {
-      justify-content: center;
-    }
-  
-    .contact-item {
-      justify-content: center;
+        gap: 2.5rem;
     }
 }
 
@@ -254,18 +250,17 @@ main {
         justify-content: space-between;
     }
 }
-  
-@media (max-width: 500px) {
-    .footer {
-      padding: 50px 15px 30px;
-    }
-  
-    .social-link img {
-      width: 40px;
-      height: 40px;
-    }
-  
+
+@media (min-width: 900px) {
     .footer-content {
-      gap: 2.5rem;
+        grid-template-columns: 1fr 2fr 1fr;
+        text-align: left;
+        gap: 40px;
+    }
+
+    .social-icons,
+    .about-header,
+    .contact-item {
+        justify-content: flex-start;
     }
 }

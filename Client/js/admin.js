@@ -17,8 +17,6 @@ async function laadEvents() {
         container.innerHTML = '<p>Er zijn nog geen evenementen.</p>';
         return;
     }
-
-    console.log(events[0]);
     
     container.innerHTML = `
     ${events.map(e => `

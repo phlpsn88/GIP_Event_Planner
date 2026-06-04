@@ -27,3 +27,6 @@ CREATE TABLE events (
     PRIMARY KEY (ID),
     FOREIGN KEY (user_id) REFERENCES users(ID) ON DELETE SET NULL
 );
+
+INSERT INTO users (username, email, password, role) VALUES
+    ('Admin', 'admin@visionevents.be', 'PLACEHOLDER', 'admin');
