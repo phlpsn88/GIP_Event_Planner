@@ -6,8 +6,8 @@ async function init() {
     if (!response.ok) {
         // 401 = niet ingelogd → doorsturen naar loginpagina
         // Dit voorkomt dat niet-ingelogde bezoekers het dashboard zien
-        // window.location.href = '/login.html';
-        return; // stop de functie — de rest mag niet uitgevoerd worden
+        window.location.href = '/login.html';
+        return; // stop de functie
     }
 
     const gebruiker = await response.json();

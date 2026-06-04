@@ -67,12 +67,6 @@ input:focus {
   box-shadow: 0 0 0 2px var(--box-shadow-purple);
 }
 
-.options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .checkbox-container {
   display: flex;
   align-items: center;

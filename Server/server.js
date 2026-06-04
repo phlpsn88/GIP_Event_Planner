@@ -102,6 +102,9 @@ app.put('/api/events/:ID', vereisLogin, async (req, res) => {
     let query;
     let params;
 
+    if (!title || !event_date ) {
+        return res.status(400).json({ fout: 'Titel en datum zijn verplicht' });
+    }
     if (isAdmin) {
         query = `
         UPDATE events

@@ -40,7 +40,7 @@ async function laadEvents() {
         <article class="event-card">
             <div class="event-main">
                 <h3 class="event-title">${e.title}</h3>
-                <p class="description">${e.description || ''}</p>
+                <p class="description">${e.description || '-'}</p>
             </div>
 
             <div class="event-meta">

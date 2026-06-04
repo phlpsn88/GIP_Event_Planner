@@ -33,40 +33,40 @@ Zorg dat de volgende software geïnstalleerd is:
     `git clone https://github.com/phlpsn88/GIP_Event_Planner.git`
 
 2. Ga naar de projectmap:
-    `cd GIP_Event_Planner`
+    `cd GIP_Event_Planner/Server/`
 
 3. Installeer de dependencies:
     `npm install`
 
-4. Maak een .env bestand aan in de root van het project en voeg toe:
+4. Maak een .env bestand aan in de Server-map van het project en voeg toe:
     `DB_HOST='localhost'`
     `DB_PORT=3306`
     `DB_USER='jouw_username'`
     `DB_PASSWORD='jouw_wachtwoord'`
     `DB_NAME='event_planner'`
 
-5. Start de server:
-    `npm start`
-    Dit start `server.js`.
+5. Zet de database op:
+    1. Open MySQL
 
-## 🗄️ Database opzetten
-1. Open MySQL
-
-2. Importeer het SQL bestand:
+    2. Importeer het SQL bestand:
     `event_planner_db.sql`
 
-## Admin aanmaken
-1. Genereer een bcrypt-hash van je gewenste wachtwoord door dit in je terminal uit te voeren:
-```bash
-node -e "import('bcrypt').then(b => b.default.hash('gekozen_wachtwoord', 10).then(h => console.log(h)))"
-```
+6. Maak de admin aan:
+    1. Genereer een bcrypt-hash van je gewenste wachtwoord door dit in je terminal uit te voeren:
+    ```bash
+    node -e "import('bcrypt').then(b => b.default.hash('gekozen_wachtwoord', 10).then(h => console.log(h)))"
+    ```
 
-2. Kopieer de hash en voer dit uit in MySQL Workbench:
-```sql
-UPDATE users
-SET wachtwoord = '$2b$10$...(kopieer hash hier)...', rol = 'admin'
-WHERE email = 'admin@visionevents.be';
-```
+    2. Kopieer de hash en voer dit uit in MySQL Workbench:
+    ```sql
+    UPDATE users
+    SET password = '$2b$10$...(kopieer hash hier)...', role = 'admin'
+    WHERE email = 'admin@visionevents.be';
+    ```
+
+7. Start de server:
+    `npm start`
+    Dit start `server.js`.
 
 ## 📖 Gebruik
 1. Open je browser en ga naar:
