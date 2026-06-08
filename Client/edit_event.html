@@ -29,7 +29,7 @@
             Titel
             <input type="text" name="title" id="title">
           </label>
-          <p class="empty-field" id="titleError" style="display: none;">Titel mag niet leeg zijn</p>
+          <p class="empty-field" id="titleError" hidden>Titel mag niet leeg zijn</p>
         
           <label for="description">
             Beschrijving
@@ -52,6 +52,7 @@
                 <option value="0">Geannuleerd</option>
               </select>
             </label>
+            <p class="empty-field empty-date" id="dateError" hidden>Datum mag niet leeg zijn</p>
           </div>
         </div>
           
@@ -60,7 +61,6 @@
           <button type="submit" class="btn">Opslaan</button>
         </div>
       </form>
-      <p id="foutmelding" class="fout" hidden></p>
     </section>
   </main>
 

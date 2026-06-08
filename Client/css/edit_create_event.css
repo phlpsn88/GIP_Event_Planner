@@ -59,6 +59,16 @@ header {
     min-height: 90px;
 }
 
+.empty-field {
+    font-size: 0.9rem;
+    color: var(--primary-color-red);
+}
+
+.empty-date {
+    padding-left: 0.5rem;
+    padding-top: 1.8rem;
+}
+
 .default-info {
     display: flex;
     align-items: center;

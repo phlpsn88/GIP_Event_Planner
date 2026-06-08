@@ -38,6 +38,21 @@ async function init() {
 document.getElementById('editForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    const formTitle = document.getElementById('title').value;
+    const formDate = document.getElementById('date').value;
+
+    if (formTitle === '') {
+        const titelFout = document.getElementById('titleError');
+
+        titelFout.hidden = false;
+    }
+
+    if (formDate === '') {
+        const datumFout = document.getElementById('dateError');
+
+        datumFout.hidden = false;
+    }
+
     const body = {
         title: document.getElementById('title').value,
         description: document.getElementById('description').value,
@@ -54,11 +69,6 @@ document.getElementById('editForm').addEventListener('submit', async (e) => {
 
     if (res.ok) {
         window.location.href = '/overview.html';
-    } else {
-        const data = await res.json();
-        const fout = document.getElementById('foutmelding');
-        fout.textContent = data.fout;
-        fout.hidden = false;
     }
 });
 
