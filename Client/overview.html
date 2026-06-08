@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="icon" href="img/calendar-days-regular-full.svg">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/overview.css">
-    <!-- <script type="module" src="js/delete_popup.js"></script> -->
     <script type="module" src="js/logout.js"></script>
     <script type="module" src="js/overview.js"></script>
     <title>Event planner</title>
@@ -30,12 +29,14 @@
     </header>
 
     <main>
-        <div class="page-header">
-            <h2>Overzicht van je events</h2>
-            <a href="create_event.html" class="btn btn-primary create-event">Nieuw event</a>
-        </div>
+        <h1 hidden>h1</h1>
 
         <section class="events-overview event-template">
+            <div class="page-header">
+                <h2>Overzicht van je events</h2>
+                <a href="create_event.html" class="btn btn-primary create-event">Nieuw event</a>
+            </div>
+            
             <article class="event-card">
                 <div class="event-main">
                     <h3 class="event-title">Titel</h3>
@@ -56,7 +57,9 @@
             </article>
         </section>
 
-        <section class="events-overview" id="events-overview">Laden...</section>
+        <section class="events-overview" id="events-overview">
+            <h2>Laden...</h2>
+        </section>
     </main>
 
     <!-- DELETE MODAL -->

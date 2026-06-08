@@ -20,11 +20,16 @@ async function init() {
 
     const event = await eventRes.json();
 
+    let d = new Date(event.event_date);
+    const local = new Date(d.getTime() - d.getTimezoneOffset() * 60000)
+        .toISOString()
+        .split('T')[0];
+
     // ── Stap 3: formulier invullen met de ontvangen data ─────────────────────
     // Elk veld krijgt de waarde die van de server komt
     document.getElementById('title').value = event.title;
     document.getElementById('description').value = event.description || '';
-    document.getElementById('date').value = event.event_date.slice(0, 10);
+    document.getElementById('date').value = local;
     document.getElementById('location').value = event.location || '';
     document.getElementById('status').value = event.status;
 }

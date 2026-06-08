@@ -38,7 +38,7 @@ body {
 }
 
 .logo span {
-    color: var(--purple-main);
+    color: var(--primary-color-purple);
 }
 
 .nav-buttons {
@@ -90,12 +90,12 @@ body {
 }
 
 .btn-register {
-    background: var(--purple-main);
+    background: var(--primary-color-purple);
     color: var(--primary-color-white);
 }
 
 .btn-register:hover {
-    background: var(--purple-dark);
+    background: var(--dark-color-purple);
     transform: translateY(-2px);
     box-shadow: 0 10px 30px var(--glow);
 }
@@ -136,7 +136,7 @@ body {
     left: 0;
     right: 0;
     height: 5px;
-    background: var(--purple-main);
+    background: var(--primary-color-purple);
     border-radius: 4px;
     box-shadow: 0 0 30px var(--glow);
 }
@@ -159,7 +159,7 @@ body {
 .manage-btn:hover {
     transform: translateY(-3px) scale(1.03);
     box-shadow: 0 20px 50px var(--glow);
-    background: linear-gradient(45deg, var(--purple-dark), var(--purple-main));
+    background: linear-gradient(45deg, var(--dark-color-purple), var(--primary-color-purple));
 }
 
 .highlights {
@@ -184,7 +184,7 @@ body {
 
 .highlight-item:hover {
     transform: translateY(-10px);
-    border-color: var(--purple-main);
+    border-color: var(--primary-color-purple);
     box-shadow: 0 20px 40px rgba(91, 33, 182, 0.35);
 }
 
@@ -197,10 +197,10 @@ body {
 
 .highlight-item:hover .highlight-icon {
     transform: scale(1.15) rotate(6deg);
-    color: var(--purple-main);
+    color: var(--primary-color-purple);
 }
 
-.highlight-item h4 {
+.highlight-item h2 {
     font-size: clamp(1.2rem, 3.5vw, 1.4rem);
     margin: 0.8rem 0 1rem;
     color: var(--purple-light);
@@ -226,16 +226,23 @@ body {
 
 .filler-text h3 {
     font-size: clamp(1.8rem, 5vw, 2.4rem);
-    color: var(--purple-main);
+    color: var(--primary-color-purple);
     margin-bottom: 1rem;
     font-weight: 700;
 }
 
 .filler-text p {
+    padding-bottom: 5%;
     font-size: clamp(1.05rem, 3vw, 1.2rem);
     max-width: 700px;
     opacity: 0.9;
     line-height: 1.7;
+}
+
+.more-info {
+    font-size: clamp(1.05rem, 3vw, 1.2rem);
+    font-weight: bold;
+    color: var(--primary-color-purple);
 }
 
 .filler-image img {
@@ -257,7 +264,7 @@ body {
 
 .stats h2 {
   font-size: clamp(2rem, 5vw, 3rem);
-  color: var(--purple-main);
+  color: var(--primary-color-purple);
   margin-bottom: 3rem;
   font-weight: 800;
   position: relative;
@@ -271,7 +278,7 @@ body {
   transform: translateX(-50%);
   width: 120px;
   height: 5px;
-  background: var(--purple-main);
+  background: var(--primary-color-purple);
   border-radius: 4px;
   box-shadow: 0 0 25px var(--glow);
 }
@@ -295,14 +302,14 @@ body {
 
 .stat-item:hover {
   transform: translateY(-12px);
-  border-color: var(--purple-main);
+  border-color: var(--primary-color-purple);
   box-shadow: 0 25px 50px rgba(168, 85, 247, 0.3);
 }
 
 .stat-number {
   font-size: clamp(3.5rem, 10vw, 5.5rem);
   font-weight: 900;
-  color: var(--purple-main);
+  color: var(--primary-color-purple);
   line-height: 1;
   margin-bottom: 0.8rem;
   text-shadow: 0 0 30px var(--glow);
