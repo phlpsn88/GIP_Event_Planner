@@ -41,16 +41,23 @@ document.getElementById('editForm').addEventListener('submit', async (e) => {
     const formTitle = document.getElementById('title').value;
     const formDate = document.getElementById('date').value;
 
-    if (formTitle === '') {
+    if (formTitle === '' || formDate === '') {
         const titelFout = document.getElementById('titleError');
-
-        titelFout.hidden = false;
-    }
-
-    if (formDate === '') {
         const datumFout = document.getElementById('dateError');
 
-        datumFout.hidden = false;
+        if (formTitle === '') {
+            titelFout.hidden = false;
+        } else {
+            titelFout.hidden = true;
+        }
+
+        if (formDate === '') {
+            datumFout.style.visibility = 'visible';
+        } else {
+            datumFout.style.visibility = 'hidden';
+        }
+
+        return;
     }
 
     const body = {
@@ -66,7 +73,7 @@ document.getElementById('editForm').addEventListener('submit', async (e) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
     });
-
+    
     if (res.ok) {
         window.location.href = '/overview.html';
     }

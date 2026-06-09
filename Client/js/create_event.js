@@ -18,6 +18,28 @@ async function init() {
 async function slaEventOp(e) {
     e.preventDefault();
 
+        const formTitle = document.getElementById('title').value;
+    const formDate = document.getElementById('date').value;
+
+    if (formTitle === '' || formDate === '') {
+        const titelFout = document.getElementById('titleError');
+        const datumFout = document.getElementById('dateError');
+
+        if (formTitle === '') {
+            titelFout.hidden = false;
+        } else {
+            titelFout.hidden = true;
+        }
+
+        if (formDate === '') {
+            datumFout.style.visibility = 'visible';
+        } else {
+            datumFout.style.visibility = 'hidden';
+        }
+
+        return;
+    }
+
     const body = {
         title: document.getElementById('title').value,
         description: document.getElementById('description').value,

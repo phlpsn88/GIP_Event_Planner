@@ -30,6 +30,7 @@
               Titel
               <input type="text" value="" name="title" id="title" placeholder="Titel van het evenement">
             </label>
+            <p class="empty-field" id="titleError" hidden>Titel mag niet leeg zijn</p>
         
             <label for="description">
               Beschrijving
@@ -45,10 +46,11 @@
                 Locatie
                 <input type="text" name="location" id="location" placeholder="Locatie van het evenement">
               </label>
+              <p class="empty-field empty-date" id="dateError">Datum mag niet leeg zijn</p>
               <input type="hidden" name="status" id="status" value="1">
               <div class="default-info">
                 <span class="info-icon">
-                    <i class="fa-solid fa-circle-info" style="color: var(--primary-color-purple);"></i>
+                  <i class="fa-solid fa-circle-info" style="color: var(--primary-color-purple);"></i>
                 </span>
                 <p>Nieuwe evenementen worden automatisch als <strong>actief</strong> aangemaakt. Je kan dit later aanpassen.</p>
               </div>
