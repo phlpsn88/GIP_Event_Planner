@@ -66,6 +66,7 @@ header {
 }
 
 .empty-date {
+    visibility: hidden;
     padding-left: 0.5rem;
     padding-top: 0.5rem;
 }
@@ -161,7 +162,6 @@ header {
     }
 
     .empty-date {
-        visibility: hidden;
         padding-top: unset;
     }
 
