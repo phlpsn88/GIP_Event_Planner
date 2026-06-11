@@ -13,7 +13,7 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 16px;
-  padding: 40px 24px 32px;
+  padding:40px 24px 32px;
   width: 100%;
   max-width: 420px;
   max-height: 95vh;
@@ -71,7 +71,7 @@ input:focus {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 24px 0 32px 0;
+  margin: 24px 0 20px 0;
   font-size: 0.95rem;
   color: var(--light-color-purple);
 }
@@ -208,7 +208,8 @@ input[type="checkbox"] {
   }
 
   .container {
-    padding: 48px 32px 40px;
+    padding: 18px 32px 40px;
+    max-height: 99vh;
   }
 
   h1 {
